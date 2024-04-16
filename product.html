@@ -1,151 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Style -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <title>Login #2</title>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-      <a class="navbar-brand" href="./home.html">Product</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+    <link rel="stylesheet" href="css/style.css">
+    <title>Product List</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <a class="navbar-brand" href="./home.html">Product</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton" onclick="callApi()" >
-            Search
-          </button>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton" onclick="callApi()">Search
+            </button>
         </form>
-      </div>
-    </nav>
-
-    <div class="container">
-      <!-- <div class="pricing-header px-3 py-3 pt-md-5 mx-auto text-center card-deck text-center">
-            <div class="card" style="width: 20rem;">
-                <img src="./images/wine-5323009_1280.jpg" class="card-img-top card-img" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="./images/wine-5323009_1280.jpg" class="card-img-top card-img" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="./images/wine-5323009_1280.jpg" class="card-img-top card-img" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div> -->
-        
-      <section class="py-5" >
-        <div class="container px-4 px-lg-5 my-5">
-          <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6"  >
-              <img
-                class="card-img-top mb-5 mb-md-0"
-                src="images\Don 25k.webp"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-6">
-              <div class="small mb-1">SKU: BST-498</div>
-              <h1 class="display-5 fw-bolder">Don Parion</h1>
-              <div class="fs-5 mb-5">
-                <span class="text-decoration-line-through"><h4>$25,477.99</h4> </span>
-                
-              </div>
-              <p class="lead">
-                Gun Dog Red Malbec is a medium-bodied, dry red with rich fruit flavors of blackberry, black cherry and plum. Smoke, earth, wild game and black pepper add to the complexity of this wine and make it an excellent choice for many food pairings.
-              </p>
-              <div class="d-flex">
-                <input
-                  class="form-control text-center mx-3"
-                  id="inputQuantity"
-                  type="num"
-                  value="1"
-                  style="max-width: 3rem"
-                />
-                <button
-                  class="btn btn-outline-dark flex-shrink-0"
-                  type="button"
-                >
-                  <i class="bi-cart-fill me-1"></i>
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </section>
     </div>
-    >
+</nav>
 
-    
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="images/wine-5323009_1280.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Item One</a>
+                    </h4>
+                    <h5>$24.99</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="images/wine-5323009_1280.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Item Two</a>
+                    </h4>
+                    <h5>$24.99</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="images/wine-5323009_1280.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Item Three</a>
+                    </h4>
+                    <h5>$24.99</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src ="script.js"></script>
-  </body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="script.js"></script>
+</body>
 </html>

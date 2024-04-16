@@ -37,7 +37,7 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./card.html">Products</a>
+          <a class="nav-link" href="./cart.html">Products</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -56,10 +56,17 @@
           </a>
 
         </button>
-        <button class="btn btn-outline-info flex-shrink-0" type="button">
+        <button class="btn btn-outline-info flex-shrink-0" type="button" data-product-id="${product.id}">
           <i class="bi-cart-fill me-1"></i>
-          Add to cart
+          My Cart
         </button>
+
+            
+
+        <!-- <button class="btn btn-outline-primary mr-2 my-2 my-sm-0 add-to-cart-btn" type="button" data-product-id="${product.id}">
+          Add to Cart
+      </button>  -->
+
       </form>
     </div>
   </nav>
@@ -92,6 +99,8 @@
   <script src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
   <script src="./script.js" type="text/javascript"></script>
+
+
 </body>
 
 </html>

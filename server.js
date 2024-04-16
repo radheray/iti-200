@@ -20,13 +20,13 @@ const product = [
     id: 1,
     pic: "./images/Don 25k.webp",
     price: "$25,477.99",
-    name: "donperion",
+    name: "Donperion",
   },
   {
     id: 2,
     pic: "./images/Don perion.webp",
     price: "$2,799.00",
-    name: "donperion",
+    name: "Donperion",
   },
   {
     id: 3,
@@ -40,6 +40,7 @@ const product = [
     price: "$3.99",
     name: "monster",
   },
+
 ];
 
 app.post("/", function (req, res) {
@@ -116,6 +117,57 @@ app.post("/signin", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+// Define a route for adding products to the cart
+app.post("/cart/add", function(req, res) {
+  const { productId } = req.body;
+
+  // Find the product by its ID
+  const selectedProduct = product.find(prod => prod.id === productId);
+
+  if (!selectedProduct) {
+      return res.status(404).json({ error: "Product not found" });
+  }
+
+  // Add the product to the cart (you can store cart information in memory)
+  // For simplicity, let's assume cart is an array
+  // You may want to implement a more robust cart management system
+  cart.push(selectedProduct);
+
+  // Respond with success message
+  res.status(200).json({ message: "Product added to cart", cart: cart });
+});
+
+// Define an empty array to store cart items
+let cart = [];
+
+// Define a route for adding products to the cart
+app.post("/cart/add", function(req, res) {
+    const { productId } = req.body;
+
+    // Find the product by its ID
+    const selectedProduct = product.find(prod => prod.id === productId);
+
+    if (!selectedProduct) {
+        return res.status(404).json({ error: "Product not found" });
+    }
+
+    // Add the product to the cart
+    cart.push(selectedProduct);
+
+    // Respond with success message
+    res.status(200).json({ message: "Product added to cart", cart: cart });
+});
+
+// Define a route for fetching cart items
+app.get("/cart/items", function(req, res) {
+    // Return the cart items
+    res.status(200).json({ cart: cart });
+});
+
+
+
+
 
 app.listen(3000, () => {
   console.log("listening port 3000");
