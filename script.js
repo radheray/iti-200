@@ -1,7 +1,11 @@
 function callApi() {
   var searchString = document.getElementById("search").value;
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:3000/search", true);
+  xhr.open(
+    "POST",
+    "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/search",
+    true
+  );
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -49,7 +53,11 @@ function displayResults(response) {
 
   document.getElementById("buybutton").addEventListener("click", function () {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/cart/add", true);
+    xhr.open(
+      "POST",
+      "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/cart/add",
+      true
+    );
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -70,7 +78,7 @@ $(document).on("click", ".add-to-cart-btn", function () {
 
   // Send AJAX request to add product to cart
   $.ajax({
-    url: "http://localhost:3000/cart/add",
+    url: "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/cart/add",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify({ productId: productId }),
@@ -135,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadCartItems() {
   // Send AJAX request to fetch cart items from the server
   $.ajax({
-    url: "http://localhost:3000/cart/items",
+    url: "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/cart/items",
     method: "GET",
     success: function (response) {
       // Update the UI with cart items
@@ -189,7 +197,7 @@ $(document).on("click", ".add-to-cart-btn", function () {
 
   // Send AJAX request to add product to cart
   $.ajax({
-    url: "http://localhost:3000/cart/add",
+    url: "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/cart/add",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify({ productId: productId }),

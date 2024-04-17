@@ -9,16 +9,16 @@ app.use(cors());
 
 const pool = new Pool({
   user: "postgres",
-  host: "localhost",
+  host: "radhe.czlrs31nhr0a.us-west-1.rds.amazonaws.com",
   database: "radhe",
-  password: "root",
+  password: "postgres",
   port: 5432, // PostgreSQL default port
 });
 
 const product = [
   {
     id: 1,
-    pic: "./images/Don_25k.webp",
+    pic: "https://storage.googleapis.com/radheproject/Don_25k.webp",
     price: 25477.99,
     name: "donperion",
     stores: [
@@ -41,7 +41,7 @@ const product = [
   },
   {
     id: 2,
-    pic: "./images/Monster.webp",
+    pic: "https://storage.googleapis.com/radheproject/Monster.webp",
     price: 899.0,
     name: "monster",
     stores: [
@@ -59,7 +59,7 @@ const product = [
   },
   {
     id: 3,
-    pic: "./images/1.jpeg",
+    pic: "https://storage.googleapis.com/radheproject/1.jpeg",
     price: 99.0,
     name: "pepsi",
     stores: [

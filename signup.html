@@ -134,13 +134,16 @@
           };
 
           // Send fetch POST request
-          fetch("http://localhost:3000/signup", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          })
+          fetch(
+            "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/signup",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            }
+          )
             .then((response) => {
               if (!response.ok) {
                 throw new Error("Signup failed");

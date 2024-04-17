@@ -127,7 +127,11 @@
       let Data;
       window.onload = function getCarts() {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:3000/cart/find/all", true);
+        xhr.open(
+          "GET",
+          "http://ec2-54-183-158-230.us-west-1.compute.amazonaws.com:3000/cart/find/all",
+          true
+        );
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onload = function () {
           if (xhr.status === 200) {
@@ -231,7 +235,7 @@
       }
 
       function redirect() {
-        window.location.href = "http://localhost:5500/payment.html";
+        window.location.href = "./payment.html";
       }
     </script>
   </body>
