@@ -18,13 +18,13 @@ const pool = new Pool({
 const product = [
   {
     id: 1,
-    pic: "./images/Don 25k.webp",
+    pic: "./images/Don_25k.webp",
     price: "$25,477.99",
     name: "Donperion",
   },
   {
     id: 2,
-    pic: "./images/Don perion.webp",
+    pic: "./images/Don_perion.webp",
     price: "$2,799.00",
     name: "Donperion",
   },
