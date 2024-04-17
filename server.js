@@ -19,36 +19,72 @@ const product = [
   {
     id: 1,
     pic: "./images/Don 25k.webp",
-    price: "$25,477.99",
-    name: "Donperion",
+    price: 25477.99,
+    name: "donperion",
+    stores: [
+      {
+        id: 1,
+        name: "Store A",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+      {
+        id: 2,
+        name: "Store B",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+      {
+        id: 3,
+        name: "Store C",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+    ],
   },
   {
     id: 2,
     pic: "./images/Don perion.webp",
-    price: "$2,799.00",
-    name: "Donperion",
+    price: 899.0,
+    name: "monster",
+    stores: [
+      {
+        id: 1,
+        name: "Store A",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+      {
+        id: 2,
+        name: "Store B",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+    ],
   },
   {
     id: 3,
-    pic: "./images/coca-cola.webp",
-    price: "$3.49",
-    name: "cocacola",
+    pic: "./images/1.jpeg",
+    price: 99.0,
+    name: "pepsi",
+    stores: [
+      {
+        id: 1,
+        name: "Store A",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+      {
+        id: 2,
+        name: "Store B",
+        address: "123 Main St, San Francisco, CA 94107",
+      },
+    ],
   },
-  {
-    id: 4,
-    pic: "./images/Monster.webp",
-    price: "$3.99",
-    name: "monster",
-  },
-
 ];
 
-app.post("/", function (req, res) {
-  console.log("read :-", req.body);
+var cart = [];
 
+app.post("/search", function (req, res) {
   var searchSrtring = req.body.searchString.toLowerCase();
 
-  var searchedProduct = product.filter((data) => data.name === searchSrtring);
+  console.log("search string: " + searchSrtring);
+
+  var searchedProduct = product.filter((data) => data?.name === searchSrtring);
 
   if (searchedProduct.length === 0) {
     return res.status(404).json({
@@ -64,7 +100,7 @@ app.post("/", function (req, res) {
 });
 
 app.post("/signup", async (req, res) => {
-  const { email, password, fullName, phoneNumber } = req.body;
+  const { email, password, fullName, phoneNumber, address } = req.body;
 
   try {
     // Check if the username already exists
@@ -78,8 +114,8 @@ app.post("/signup", async (req, res) => {
 
     // Insert new user into the database
     const newUser = await pool.query(
-      "INSERT INTO users (email, password,full_name,phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
-      [email, password, fullName, phoneNumber]
+      "INSERT INTO users (email, password,full_name,phone_number,address) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [email, password, fullName, phoneNumber, address]
     );
 
     // Return the newly created user
@@ -119,55 +155,106 @@ app.post("/signin", async (req, res) => {
 });
 
 // Define a route for adding products to the cart
-app.post("/cart/add", function(req, res) {
-  const { productId } = req.body;
-
-  // Find the product by its ID
-  const selectedProduct = product.find(prod => prod.id === productId);
-
-  if (!selectedProduct) {
-      return res.status(404).json({ error: "Product not found" });
-  }
-
-  // Add the product to the cart (you can store cart information in memory)
-  // For simplicity, let's assume cart is an array
-  // You may want to implement a more robust cart management system
-  cart.push(selectedProduct);
-
-  // Respond with success message
-  res.status(200).json({ message: "Product added to cart", cart: cart });
-});
-
-// Define an empty array to store cart items
-let cart = [];
-
-// Define a route for adding products to the cart
-app.post("/cart/add", function(req, res) {
+app.post("/cart/add", function (req, res) {
+  try {
     const { productId } = req.body;
 
     // Find the product by its ID
-    const selectedProduct = product.find(prod => prod.id === productId);
+    const selectedProduct = product.filter((prod) => prod.id === productId);
 
     if (!selectedProduct) {
-        return res.status(404).json({ error: "Product not found" });
+      return res.status(404).json({ error: "Product not found" });
     }
 
-    // Add the product to the cart
-    cart.push(selectedProduct);
+    selectedProduct.forEach((prod) => {
+      cart.push(prod);
+    });
 
-    // Respond with success message
     res.status(200).json({ message: "Product added to cart", cart: cart });
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+    });
+  }
 });
 
 // Define a route for fetching cart items
-app.get("/cart/items", function(req, res) {
-    // Return the cart items
-    res.status(200).json({ cart: cart });
+app.get("/cart/find/all", function (req, res) {
+  try {
+    if (cart.length === 0) {
+      return res.status(404).json({ message: "Cart is empty", data: cart });
+    } else {
+      // Return the cart items
+      res.status(200).json({ data: cart, message: "Cart items found" });
+    }
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+    });
+  }
 });
 
+app.get("/cart/find", function (req, res) {
+  try {
+    const id = req.query.id;
 
+    console.log(id);
 
+    console.log(cart);
 
+    const searchedProduct = cart.filter((prod) => prod.id == id);
+
+    if (searchedProduct.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "Cart is empty", data: searchedProduct });
+    } else {
+      // Return the cart items
+      res
+        .status(200)
+        .json({ data: searchedProduct, message: "Cart items found" });
+    }
+
+    // Return the cart items
+    res.status(200).json({ cart: searchedProduct });
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+    });
+  }
+});
+
+app.post("/place/order", function (req, res) {
+  try {
+    const { cartids } = req.body;
+
+    let order = [];
+
+    for (let i in cartids) {
+      order.push(cart.filter((prod) => prod.id == cartids[i])[0]);
+    }
+
+    let totalPrice = 0;
+
+    order.forEach((prod) => {
+      totalPrice += prod.price;
+    });
+
+    const response = {
+      totalPrice: totalPrice,
+      order: order,
+    };
+
+    console.log(order);
+
+    // res.status(200).json({ message: "Order placed", order: order });
+    return res.status(200).json({ message: "Order placed", data: response });
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+    });
+  }
+});
 
 app.listen(3000, () => {
   console.log("listening port 3000");

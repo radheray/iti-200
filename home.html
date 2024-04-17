@@ -37,7 +37,7 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./cart.html">Products</a>
+          <a class="nav-link" href="./product.html">Products</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -56,9 +56,8 @@
           </a>
 
         </button>
-        <button class="btn btn-outline-info flex-shrink-0" type="button" data-product-id="${product.id}">
-          <i class="bi-cart-fill me-1"></i>
-          
+        <button class="btn btn-outline-info flex-shrink-0" type="button" data-product-id="${product.id}" onclick="redirect()">
+          <i class="bi-cart-fill me-1"></i>          
         </button>
 
             
@@ -119,10 +118,10 @@
 
             <div class="col-12 col-md-6 col-lg-2 col-xl-2 mb-4">
                 <div class="text-nowrap footer-title mb-2 mb-md-3 font-weight-bold">My Account</div>
-                <p class="signed-in-block hide"><a href="/profile-orders">My Orders</a></p>
+                <p class="signed-in-block hide"><a href="./card.html">My Orders</a></p>
                 <p class="signed-in-block hide"><a href="/my-details">My Profile</a></p>
-                <p class="show"><a href="/signin">Sign In</a></p>
-                <p class="show"><a href="/signup">Sign Up</a></p>
+                <p class="show"><a href="./login.html">Sign In</a></p>
+                <p class="show"><a href="./signup.html">Sign Up</a></p>
             </div>
 
                 <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4">
@@ -171,7 +170,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 col-lg-8 order-2 order-md-1">
                 <div class="footer-copyright pt-1 pb-3">
-                    Powered By : <a href="home.html">My Local Store</a>
+                    Powered By : <a href="./home.html">My Local Store</a>
                 </div>
             </div>
             <div class=" col-md-6 col-lg-4 order-1 order-md-2 pt-1 pb-3">
@@ -201,6 +200,10 @@
             });;
         });
         $(window).trigger('resize');
+
+       function redirect(){
+        window.location.href = "./cart.html";
+       }
     </script>
 </footer>
 
