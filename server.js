@@ -41,7 +41,7 @@ const product = [
   },
   {
     id: 2,
-    pic: "./images/Don perion.webp",
+    pic: "./images/Monster.webp",
     price: 899.0,
     name: "monster",
     stores: [
@@ -56,9 +56,6 @@ const product = [
         address: "123 Main St, San Francisco, CA 94107",
       },
     ],
-    pic: "./images/Don_perion.webp",
-    price: "$2,799.00",
-    name: "Donperion",
   },
   {
     id: 3,
@@ -87,7 +84,11 @@ app.post("/search", function (req, res) {
 
   console.log("search string: " + searchSrtring);
 
-  var searchedProduct = product.filter((data) => data?.name === searchSrtring);
+  var searchedProduct = product.filter((data) => data.name === searchSrtring);
+
+  product.forEach((data) => {
+    console.log("data name", data.name);
+  });
 
   if (searchedProduct.length === 0) {
     return res.status(404).json({

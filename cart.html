@@ -87,139 +87,7 @@
     <div class="container mt-5">
       <h1 class="display-4">Shopping Cart</h1>
 
-      <div class="row" id="parentDiv">
-        <!-- First Item -->
-        <!-- <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              id="cart_img1"
-              src="https://via.placeholder.com/300"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Sample Product 1</h5>
-              <p class="card-text">
-                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.
-              </p>
-              <p class="card-text text-muted">Price: $20</p>
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="minusButton1"
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="form-control text-center"
-                  value="1"
-                  id="quantity1"
-                  readonly
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="plusButton1"
-                >
-                  +
-                </button>
-              </div>
-              <button class="btn btn-danger btn-block">Remove</button>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Second Item -->
-        <!-- <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              id="cart_img2"
-              src="https://via.placeholder.com/300"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Sample Product 2</h5>
-              <p class="card-text">
-                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.
-              </p>
-              <p class="card-text text-muted">Price: $30</p>
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="minusButton2"
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="form-control text-center"
-                  value="1"
-                  id="quantity2"
-                  readonly
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="plusButton2"
-                >
-                  +
-                </button>
-              </div>
-              <button class="btn btn-danger btn-block">Remove</button>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Third Item -->
-        <!-- <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              id="cart_img3"
-              src="https://via.placeholder.com/300"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Sample Product 3</h5>
-              <p class="card-text">
-                Description: Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.
-              </p>
-              <p class="card-text text-muted">Price: $40</p>
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="minusButton3"
-                >
-                  -
-                </button>
-                <input
-                  type="text"
-                  class="form-control text-center"
-                  value="1"
-                  id="quantity3"
-                  readonly
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="plusButton3"
-                >
-                  +
-                </button>
-              </div>
-              <button class="btn btn-danger btn-block">Remove</button>
-            </div>
-          </div>
-        </div> -->
-      </div>
+      <div class="row" id="parentDiv"></div>
 
       <!-- Total and Checkout Button -->
       <div class="row mt-4">
@@ -277,7 +145,7 @@
         for (let i = 1; i <= data.data.length; i++) {
           var element = document.createElement("div");
 
-          element.innerHTML = `<div class="col-md-4 mb-4">
+          element.innerHTML = `<div class="col-md-11 mb-4">
       <div class="card">
       <img
         id="cart_img1"

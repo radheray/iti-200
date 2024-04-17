@@ -45,7 +45,7 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
               <h3><strong>Payment Details</strong></h3>
-              <form action="./home.html" method="post" id="paymentform">
+              <form method="post" id="paymentform">
                 <div class="form-group first mt-4">
                   <label for="username">Card number</label>
                   <input
@@ -108,6 +108,7 @@
                   type="submit"
                   value="Place / Reserve your order"
                   class="btn btn-block btn-primary"
+                  onclick="redirect()"
                 />
               </form>
             </div>
@@ -115,6 +116,20 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function redirect() {
+        var cardNumber = document.getElementById("cardnumber").value;
+        var expireDate = document.getElementById("expdate").value;
+        var cvv = document.getElementById("cvv").value;
+        var nameOnCard = document.getElementById("nameoncard").value;
+        var shippingAddress = document.getElementById("shippingaddress").value;
+
+        if (cardNumber && expireDate && cvv && nameOnCard && shippingAddress) {
+          window.location.href = "./success.html";
+        }
+      }
+    </script>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
