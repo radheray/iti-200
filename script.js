@@ -3,7 +3,7 @@ function callApi() {
   var xhr = new XMLHttpRequest();
   xhr.open(
     "POST",
-    "http://ec2-54-151-28-199.us-west-1.compute.amazonaws.com:3000/search",
+    "http://ec2-50-18-140-198.us-west-1.compute.amazonaws.com:3000/search",
     true
   );
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -55,7 +55,7 @@ function displayResults(response) {
     var xhr = new XMLHttpRequest();
     xhr.open(
       "POST",
-      "http://ec2-54-151-28-199.us-west-1.compute.amazonaws.com:3000/cart/add",
+      "http://ec2-50-18-140-198.us-west-1.compute.amazonaws.com:3000/cart/add",
       true
     );
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -78,7 +78,7 @@ $(document).on("click", ".add-to-cart-btn", function () {
 
   // Send AJAX request to add product to cart
   $.ajax({
-    url: "http://ec2-54-151-28-199.us-west-1.compute.amazonaws.com:3000/cart/add",
+    url: "http://ec2-50-18-140-198.us-west-1.compute.amazonaws.com:3000/cart/add",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify({ productId: productId }),
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadCartItems() {
   // Send AJAX request to fetch cart items from the server
   $.ajax({
-    url: "http://ec2-54-151-28-199.us-west-1.compute.amazonaws.com:3000/cart/items",
+    url: "http://ec2-50-18-140-198.us-west-1.compute.amazonaws.com:3000/cart/items",
     method: "GET",
     success: function (response) {
       // Update the UI with cart items
@@ -197,7 +197,7 @@ $(document).on("click", ".add-to-cart-btn", function () {
 
   // Send AJAX request to add product to cart
   $.ajax({
-    url: "http://ec2-54-151-28-199.us-west-1.compute.amazonaws.com:3000/cart/add",
+    url: "http://ec2-50-18-140-198.us-west-1.compute.amazonaws.com:3000/cart/add",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify({ productId: productId }),
