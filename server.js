@@ -15,6 +15,16 @@ const pool = new Pool({
   port: 5432, // PostgreSQL default port
 });
 
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error('Error connecting to the database:', err.message);
+  } else {
+    console.log('Connected to the database');
+    // Release the client back to the pool
+    release();
+  }
+});
+
 const product = [
   {
     id: 1,
